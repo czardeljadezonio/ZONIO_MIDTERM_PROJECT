@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->date('start_date');
+            $table->string('photo')->nullable();
             $table->unsignedBigInteger('plan_id')->nullable(); // Foreign key, nullable
             $table->timestamps();
 

@@ -166,5 +166,21 @@
         function closeEditPlanModal() {
             toggleModal('edit-plan-modal');
         }
+
+        function toggleModal(id, forceOpen = null) {
+            const modal = document.getElementById(id);
+            if (!modal) {
+                return;
+            }
+
+            const isHidden = modal.classList.contains('hidden');
+            const shouldShow = forceOpen !== null ? forceOpen : isHidden;
+
+            if (shouldShow) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
     </script>
 </x-layouts.app>

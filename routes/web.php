@@ -32,6 +32,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/members/{member}/update', [MemberController::class, 'update'])->name('members.update');
     Route::post('/members/{member}/delete', [MemberController::class, 'destroy'])->name('members.destroy');
 
+    Route::get('members/trash', [MemberController::class, 'trash'])->name('members.trash');
+    Route::post('members/{id}/restore', [MemberController::class, 'restore'])->name('members.restore');
+    Route::delete('members/{id}/force-delete', [MemberController::class, 'forceDelete'])->name('members.force-delete');
+    Route::get('/members/export', [MemberController::class, 'export'])->name('members.export');
+
+
+
     // Plans Management CRUD (Secondary Entity)
     Route::prefix('plans')->group(function () {
         Route::get('/', [PlanController::class, 'index'])->name('plans');
